@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,23 +47,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -103,6 +110,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -142,10 +150,51 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Migrations\201802161626113_frist.cs" />
+    <Compile Include="Migrations\201802161626113_frist.Designer.cs">
+      <DependentUpon>201802161626113_frist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161632064_frist1.cs" />
+    <Compile Include="Migrations\201802161632064_frist1.Designer.cs">
+      <DependentUpon>201802161632064_frist1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161633270_frist2.cs" />
+    <Compile Include="Migrations\201802161633270_frist2.Designer.cs">
+      <DependentUpon>201802161633270_frist2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161902294_frist3.cs" />
+    <Compile Include="Migrations\201802161902294_frist3.Designer.cs">
+      <DependentUpon>201802161902294_frist3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802162031337_frist4.cs" />
+    <Compile Include="Migrations\201802162031337_frist4.Designer.cs">
+      <DependentUpon>201802162031337_frist4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802162033246_frist5.cs" />
+    <Compile Include="Migrations\201802162033246_frist5.Designer.cs">
+      <DependentUpon>201802162033246_frist5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802162034100_frist6.cs" />
+    <Compile Include="Migrations\201802162034100_frist6.Designer.cs">
+      <DependentUpon>201802162034100_frist6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802162118511_frist7.cs" />
+    <Compile Include="Migrations\201802162118511_frist7.Designer.cs">
+      <DependentUpon>201802162118511_frist7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Data\Armazem.cs" />
+    <Compile Include="Models\Data\Cliente.cs" />
+    <Compile Include="Models\Data\Db.cs" />
+    <Compile Include="Models\Data\Deposito.cs" />
+    <Compile Include="Models\Data\Estoque.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\Pedido.cs" />
+    <Compile Include="Models\Data\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,10 +234,19 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
+    <Content Include="Views\Pedidos\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Models\VM\" />
+    <Folder Include="teste\" />
+    <Folder Include="Views\Cliente\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -202,6 +260,32 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201802161626113_frist.resx">
+      <DependentUpon>201802161626113_frist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161632064_frist1.resx">
+      <DependentUpon>201802161632064_frist1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161633270_frist2.resx">
+      <DependentUpon>201802161633270_frist2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161902294_frist3.resx">
+      <DependentUpon>201802161902294_frist3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802162031337_frist4.resx">
+      <DependentUpon>201802162031337_frist4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802162033246_frist5.resx">
+      <DependentUpon>201802162033246_frist5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802162034100_frist6.resx">
+      <DependentUpon>201802162034100_frist6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802162118511_frist7.resx">
+      <DependentUpon>201802162118511_frist7.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

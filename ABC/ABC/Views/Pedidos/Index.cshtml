@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ABC.Models.Data.Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo Pedido", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           N°
+        </th>
+        <th>
+            Cliente
+        </th>
+        <th>
+           Produto
+        </th>
+
+        <th>
+            R$
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            # @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Nome)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoUnidade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
