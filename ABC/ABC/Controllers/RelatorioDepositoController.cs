@@ -19,19 +19,6 @@ namespace ABC.Controllers
             return View(db.Deposito.ToList());
         }
 
-        public ActionResult Details(int id)
-        {
-            var de = db.RelatorioDepositosDetalhes.Where(x => x.DepositoId == id).ToList();
-            var total = de.Sum(x => x.valor);
-            RelatorioDeposito dep = new RelatorioDeposito();
-            foreach (var item in de)
-            {
-                dep.valor = item.valor;
-                dep.Nome = item.Nome;
-            
-            }
 
-            return View(dep);
-        }
     }
 }
