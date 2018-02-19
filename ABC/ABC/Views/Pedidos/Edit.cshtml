@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Alterar Pedido</h2>
 @if (TempData["erro"] != null)
 {
     <div class="alert alert-danger">
@@ -22,7 +22,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Pedido</h4>
+     
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -61,5 +61,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index",null,new { @class="btn btn-info"})
 </div>

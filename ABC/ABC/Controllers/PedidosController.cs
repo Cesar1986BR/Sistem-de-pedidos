@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Collections;
+using PagedList;
 
 namespace ABC.Controllers
 {
@@ -13,9 +14,17 @@ namespace ABC.Controllers
     {
         private Db db = new Db();
         // GET: Pedidos
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
-            return View(db.Pedido.ToList());
+
+            var pedido = db.Pedido.ToList();
+            var pageNumber = pagina ?? 1;
+
+            // Set paginacao
+            var onePageOfPedidos = pedido.ToPagedList(pageNumber, 8);
+            ViewBag.onPaginaDePedidos = onePageOfPedidos;
+
+            return View(pedido);
         }
 
         // GET: Pedidos/Details/5
@@ -64,7 +73,7 @@ namespace ABC.Controllers
                 db.SaveChanges();
 
                 model.Quantidade = model.Quantidade;
-                model.PrecoUnidade = precoUnitario;
+                model.PrecoUnidade = precoUnitario * model.Quantidade;
 
                 if (ModelState.IsValid)
                 {
@@ -72,6 +81,21 @@ namespace ABC.Controllers
 
                     db.SaveChanges();
                 }
+
+                  RelatorioDeposito rd = new RelatorioDeposito();
+                  rd.DepositoId = armazen.DepositoId;
+                  rd.valor = armazen.Produto.Preco;
+                  rd.Nome = armazen.Deposito.Nome;
+                  db.RelatorioDepositosDetalhes.Add(rd);
+                  db.SaveChanges();
+
+                 RelatorioArmazem ra = new RelatorioArmazem();
+                 ra.ArmazemId = armazen.Deposito.ArmazemId;
+                 ra.valor = model.PrecoUnidade;
+                 ra.Nome = armazen.Deposito.Armazem.Nome;
+                 db.RelatorioArmazemDetalhes.Add(ra);
+                 db.SaveChanges();
+
                 TempData["Ok"] = "Pedido cadastrado sucesso!";
             }
 
@@ -122,7 +146,7 @@ namespace ABC.Controllers
                 db.SaveChanges();
 
                 pedido.Quantidade = pedido.Quantidade;
-                pedido.PrecoUnidade = precoUnitario;
+                pedido.PrecoUnidade = precoUnitario * pedido.Quantidade;
 
                 if (ModelState.IsValid)
                 {

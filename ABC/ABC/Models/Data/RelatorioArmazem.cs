@@ -7,23 +7,16 @@ using System.Web;
 
 namespace ABC.Models.Data
 {
-   
-    public class Deposito
+    public class RelatorioArmazem
     {
-
-        public int Id { get; set; }
-
+        [Key]
+        public int relatorioId { get; set; }
         public int ArmazemId { get; set; }
-
-        [Required]
-        [StringLength(150)]
+        public decimal valor { get; set; }
         public string Nome { get; set; }
 
 
         [ForeignKey("ArmazemId")]
         public virtual Armazem Armazem { get; set; }
-
-        public virtual ICollection<Estoque> Estoque { get; set; }
-        public virtual ICollection<RelatorioDeposito> RelatorioDetalhes { get; set; }
     }
 }

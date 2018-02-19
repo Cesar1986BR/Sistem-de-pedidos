@@ -15,10 +15,9 @@ namespace ABC.Models.Data
             [Required]
             [StringLength(50)]
             public string Nome { get; set; }
-
             public int Prazo { get; set; }
 
             public virtual ICollection<Deposito> Deposito { get; set; }
-           public virtual ICollection<RelatorioDetalhes> RelatorioDetalhes { get; set; }
+           public virtual ICollection<RelatorioArmazem> RelatorioDetalhes { get; set; }
     }
 }

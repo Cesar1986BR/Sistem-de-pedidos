@@ -3,22 +3,24 @@
 @{
     ViewBag.Title = "Index";
 }
+@using PagedList.Mvc;
+@using PagedList;
 
-<h2>Index</h2>
+<h2>Pedidos</h2>
 
 <p>
-    @Html.ActionLink("Criar Novo Pedido", "Create")
+    @Html.ActionLink("Novo Pedido", "Create", null, new { @class = "btn btn-info" })
 </p>
 <table class="table">
     <tr>
         <th>
-           N°
+            N°
         </th>
         <th>
             Cliente
         </th>
         <th>
-           Produto
+            Produto
         </th>
 
         <th>
@@ -27,27 +29,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            # @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cliente.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Produto.Nome)
-        </td>
+    @foreach (var item in ViewBag.onPaginaDePedidos)
+    {
+        <tr>
+            <td>
+                # @item.Id
+            </td>
+            <td>
+                @item.Cliente.Nome
+            </td>
+            <td>
+                @item.Produto.Nome
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.PrecoUnidade)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+            <td>
+                @item.PrecoUnidade
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Relatório", "Details", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)ViewBag.onPaginaDePedidos, pagina => Url.Action("Index", new { pagina }))

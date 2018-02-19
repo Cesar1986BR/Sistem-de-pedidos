@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Caseiro.Mvc.PagedList, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caseiro.Mvc.PagedList.1.0.2\lib\net40\Caseiro.Mvc.PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -57,6 +60,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -152,23 +161,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
-    <Compile Include="Migrations\201802172233036_first.cs" />
-    <Compile Include="Migrations\201802172233036_first.Designer.cs">
-      <DependentUpon>201802172233036_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802181533255_domingo.cs" />
-    <Compile Include="Migrations\201802181533255_domingo.Designer.cs">
-      <DependentUpon>201802181533255_domingo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802181535293_domingo1.cs" />
-    <Compile Include="Migrations\201802181535293_domingo1.Designer.cs">
-      <DependentUpon>201802181535293_domingo1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802191245534_domingo2.cs" />
-    <Compile Include="Migrations\201802191245534_domingo2.Designer.cs">
-      <DependentUpon>201802191245534_domingo2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Controllers\RelatorioArmazemController.cs" />
+    <Compile Include="Controllers\RelatorioDepositoController.cs" />
     <Compile Include="Models\Data\Armazem.cs" />
     <Compile Include="Models\Data\Cliente.cs" />
     <Compile Include="Models\Data\Db.cs" />
@@ -179,13 +173,15 @@
     </Compile>
     <Compile Include="Models\Data\Pedido.cs" />
     <Compile Include="Models\Data\Produto.cs" />
-    <Compile Include="Models\Data\RelatorioDetalhes.cs" />
+    <Compile Include="Models\Data\RelatorioArmazem.cs" />
+    <Compile Include="Models\Data\RelatorioDeposito.cs" />
     <Compile Include="Models\RelatorioDetalhes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -230,6 +226,8 @@
     <Content Include="Views\Pedidos\Edit.cshtml" />
     <Content Include="Views\Pedidos\Delete.cshtml" />
     <Content Include="Views\Pedidos\Details.cshtml" />
+    <Content Include="Views\RelatorioDeposito\Index.cshtml" />
+    <Content Include="Views\RelatorioArmazem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,20 +248,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802172233036_first.resx">
-      <DependentUpon>201802172233036_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802181533255_domingo.resx">
-      <DependentUpon>201802181533255_domingo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802181535293_domingo1.resx">
-      <DependentUpon>201802181535293_domingo1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191245534_domingo2.resx">
-      <DependentUpon>201802191245534_domingo2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

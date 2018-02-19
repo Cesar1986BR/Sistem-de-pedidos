@@ -26,6 +26,7 @@ namespace ABC.Models.Data
         public virtual DbSet<Deposito> Deposito { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Estoque> Estoque { get; set; }
-        public virtual DbSet<RelatorioDetalhes> RelatorioDetalhes { get; set; }
+        public virtual DbSet<RelatorioDeposito> RelatorioDepositosDetalhes { get; set; }
+        public virtual DbSet<RelatorioArmazem> RelatorioArmazemDetalhes { get; set; }
     }
 }
