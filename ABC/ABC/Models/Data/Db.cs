@@ -8,10 +8,10 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ABC.Models.Data
 {
-    public class Db: DbContext
+    public class Db : DbContext
     {
 
-        public Db():base("Conexao")
+        public Db() : base("Conexao")
         {
 
         }
@@ -26,5 +26,6 @@ namespace ABC.Models.Data
         public virtual DbSet<Deposito> Deposito { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Estoque> Estoque { get; set; }
+        public virtual DbSet<RelatorioDetalhes> RelatorioDetalhes { get; set; }
     }
 }

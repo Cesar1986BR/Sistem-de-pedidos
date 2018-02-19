@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ABC.Models.Data
 {
-    [Table("Estoque")]
+    
     public class Estoque
     {
         [Key]
@@ -24,5 +24,7 @@ namespace ABC.Models.Data
 
         [ForeignKey("ProdutoId")]
         public virtual Produto Produto { get; set; }
+
+        public virtual ICollection<RelatorioDetalhes> RelatorioDetalhes { get; set; }
     }
 }

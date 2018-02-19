@@ -7,7 +7,6 @@ using System.Web;
 
 namespace ABC.Models.Data
 {
-    [Table("Cliente")]
     public class Cliente
     {
        [Key]
@@ -18,5 +17,6 @@ namespace ABC.Models.Data
         public string Nome { get; set; }
 
         public virtual ICollection<Pedido> Pedido { get; set; }
+        public virtual ICollection<RelatorioDetalhes> RelatorioDetalhes { get; set; }
     }
 }

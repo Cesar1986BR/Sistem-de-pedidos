@@ -152,37 +152,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
-    <Compile Include="Migrations\201802161626113_frist.cs" />
-    <Compile Include="Migrations\201802161626113_frist.Designer.cs">
-      <DependentUpon>201802161626113_frist.cs</DependentUpon>
+    <Compile Include="Migrations\201802172233036_first.cs" />
+    <Compile Include="Migrations\201802172233036_first.Designer.cs">
+      <DependentUpon>201802172233036_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802161632064_frist1.cs" />
-    <Compile Include="Migrations\201802161632064_frist1.Designer.cs">
-      <DependentUpon>201802161632064_frist1.cs</DependentUpon>
+    <Compile Include="Migrations\201802181533255_domingo.cs" />
+    <Compile Include="Migrations\201802181533255_domingo.Designer.cs">
+      <DependentUpon>201802181533255_domingo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802161633270_frist2.cs" />
-    <Compile Include="Migrations\201802161633270_frist2.Designer.cs">
-      <DependentUpon>201802161633270_frist2.cs</DependentUpon>
+    <Compile Include="Migrations\201802181535293_domingo1.cs" />
+    <Compile Include="Migrations\201802181535293_domingo1.Designer.cs">
+      <DependentUpon>201802181535293_domingo1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802161902294_frist3.cs" />
-    <Compile Include="Migrations\201802161902294_frist3.Designer.cs">
-      <DependentUpon>201802161902294_frist3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802162031337_frist4.cs" />
-    <Compile Include="Migrations\201802162031337_frist4.Designer.cs">
-      <DependentUpon>201802162031337_frist4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802162033246_frist5.cs" />
-    <Compile Include="Migrations\201802162033246_frist5.Designer.cs">
-      <DependentUpon>201802162033246_frist5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802162034100_frist6.cs" />
-    <Compile Include="Migrations\201802162034100_frist6.Designer.cs">
-      <DependentUpon>201802162034100_frist6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802162118511_frist7.cs" />
-    <Compile Include="Migrations\201802162118511_frist7.Designer.cs">
-      <DependentUpon>201802162118511_frist7.cs</DependentUpon>
+    <Compile Include="Migrations\201802191245534_domingo2.cs" />
+    <Compile Include="Migrations\201802191245534_domingo2.Designer.cs">
+      <DependentUpon>201802191245534_domingo2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Data\Armazem.cs" />
@@ -195,6 +179,8 @@
     </Compile>
     <Compile Include="Models\Data\Pedido.cs" />
     <Compile Include="Models\Data\Produto.cs" />
+    <Compile Include="Models\Data\RelatorioDetalhes.cs" />
+    <Compile Include="Models\RelatorioDetalhes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -241,12 +227,16 @@
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\Pedidos\Create.cshtml" />
+    <Content Include="Views\Pedidos\Edit.cshtml" />
+    <Content Include="Views\Pedidos\Delete.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\VM\" />
     <Folder Include="teste\" />
     <Folder Include="Views\Cliente\" />
+    <Folder Include="Views\RelatorioEstoque\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -262,29 +252,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802161626113_frist.resx">
-      <DependentUpon>201802161626113_frist.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802172233036_first.resx">
+      <DependentUpon>201802172233036_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802161632064_frist1.resx">
-      <DependentUpon>201802161632064_frist1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802181533255_domingo.resx">
+      <DependentUpon>201802181533255_domingo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802161633270_frist2.resx">
-      <DependentUpon>201802161633270_frist2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802181535293_domingo1.resx">
+      <DependentUpon>201802181535293_domingo1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802161902294_frist3.resx">
-      <DependentUpon>201802161902294_frist3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802162031337_frist4.resx">
-      <DependentUpon>201802162031337_frist4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802162033246_frist5.resx">
-      <DependentUpon>201802162033246_frist5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802162034100_frist6.resx">
-      <DependentUpon>201802162034100_frist6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802162118511_frist7.resx">
-      <DependentUpon>201802162118511_frist7.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802191245534_domingo2.resx">
+      <DependentUpon>201802191245534_domingo2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

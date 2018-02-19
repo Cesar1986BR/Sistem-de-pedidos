@@ -7,13 +7,13 @@ namespace ABC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class frist2 : IMigrationMetadata
+    public sealed partial class domingo : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(frist2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(domingo));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802161633270_frist2"; }
+            get { return "201802181533255_domingo"; }
         }
         
         string IMigrationMetadata.Source
