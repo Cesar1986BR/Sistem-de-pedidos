@@ -14,6 +14,8 @@ namespace ABC.Controllers
         // GET: RelatorioArmazem
         public ActionResult Index()
         {
+            var totalpedido = db.Pedido.ToList();
+            ViewBag.TotalP = totalpedido.Count;
 
             return View(db.Armazem.ToList());
         }
@@ -22,6 +24,7 @@ namespace ABC.Controllers
         {
             var ra = db.RelatorioArmazemDetalhes.Where(x => x.ArmazemId == id).ToList() ;
             var total = ra.Sum(x => x.valor);
+           
             RelatorioArmazem arm = new RelatorioArmazem();
             foreach (var item in ra)
             {

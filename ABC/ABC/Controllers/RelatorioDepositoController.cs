@@ -13,6 +13,9 @@ namespace ABC.Controllers
         // GET: RelatorioDeposito
         public ActionResult Index()
         {
+            var totalpedido = db.Pedido.ToList();
+            ViewBag.TotalP = totalpedido.Count;
+
             return View(db.Deposito.ToList());
         }
 

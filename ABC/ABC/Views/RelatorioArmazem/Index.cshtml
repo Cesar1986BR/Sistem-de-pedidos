@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-
+    
 
 }
 
@@ -18,28 +18,39 @@
             Total Pedidos
         </th>
         <th>
+            Porcentagem
+        </th>
+        <th>
             R$ Total
         </th>
+
 
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RelatorioDetalhes.Count)
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelatorioDetalhes.Count)
 
-            </td>
-            <td>
+        </td>
 
-               @item.RelatorioDetalhes.Sum(v => v.valor)
-            </td>
+        <td>
+            @item.RelatorioDetalhes.Sum(v => v.ArmazemId * 100 / ViewBag.TotalP)%
+        </td>
 
-        </tr>
+        <td>
+
+            @item.RelatorioDetalhes.Sum(v => v.valor)
+        </td>
+
+
+
+    </tr>
     }
 
 </table>

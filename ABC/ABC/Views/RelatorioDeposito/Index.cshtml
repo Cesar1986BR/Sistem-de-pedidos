@@ -15,9 +15,11 @@
         <th>
             Total Pedidos
         </th>
-
         <th>
-            R$ Total 
+            Porcentagem
+        </th>
+        <th>
+            R$ Total
         </th>
         <th></th>
     </tr>
@@ -31,8 +33,12 @@
             @Html.DisplayFor(modelItem => item.RelatorioDetalhes.Count)
         </td>
         <td>
+            @item.RelatorioDetalhes.Sum(v => v.DepositoId * 100 / ViewBag.TotalP)%
+        </td>
+        <td>
             @item.RelatorioDetalhes.Sum(v => v.valor)
         </td>
+
 
     </tr>
 }
