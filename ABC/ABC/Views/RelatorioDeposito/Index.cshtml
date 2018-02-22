@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    
 }
 
 <h2>Relatório Deposíto</h2>
@@ -31,9 +32,13 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RelatorioDetalhes.Count)
+        
         </td>
         <td>
-            @item.RelatorioDetalhes.Sum(v => v.DepositoId * 100 / ViewBag.TotalP)%
+            @{ 
+                var total = @item.RelatorioDetalhes.Count * 100 / ViewBag.TotalP;
+            }
+            @total %
         </td>
         <td>
             @item.RelatorioDetalhes.Sum(v => v.valor)

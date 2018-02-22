@@ -40,7 +40,12 @@
         </td>
 
         <td>
-            @item.RelatorioDetalhes.Sum(v => v.ArmazemId * 100 / ViewBag.TotalP)%
+            @{
+               var total = @item.RelatorioDetalhes.Count * 100 / ViewBag.TotalP;
+            }
+            @total %
+
+     
         </td>
 
         <td>
